@@ -137,6 +137,7 @@
   background: rgba(255, 255, 255, 0.1);
   opacity: 0;
   transition: opacity 0.3s;
+  pointer-events: none;
 }
 
 .interactive-lab__card:hover::before {
@@ -255,6 +256,8 @@
 .interactive-lab__card-actions {
   display: flex;
   gap: 8px;
+  position: relative;
+  z-index: 10;
 }
 
 .interactive-lab__btn {
@@ -268,6 +271,8 @@
   transition: all 0.2s;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
 }
 
 .interactive-lab__btn--primary {

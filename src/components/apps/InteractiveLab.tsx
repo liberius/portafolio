@@ -82,11 +82,20 @@ export const InteractiveLab: React.FC = () => {
 
   const handleOpenDemo = (e: React.MouseEvent, demo: LabDemo) => {
     e.stopPropagation()
+    e.preventDefault()
+
+    console.log('🎯 Opening demo:', demo.title, demo.component)
 
     if (demo.status === 'coming-soon') {
       alert('🚧 Esta demo estará disponible próximamente')
       return
     }
+
+    console.log('✅ Calling openWindow with:', {
+      id: `${demo.component.toLowerCase()}-${Date.now()}`,
+      title: demo.title,
+      component: demo.component,
+    })
 
     openWindow({
       id: `${demo.component.toLowerCase()}-${Date.now()}`,
@@ -97,6 +106,9 @@ export const InteractiveLab: React.FC = () => {
 
   const handleViewDetails = (e: React.MouseEvent, demoId: string) => {
     e.stopPropagation()
+    e.preventDefault()
+
+    console.log('👁️ Toggling details for:', demoId, 'Currently:', selectedDemo)
     setSelectedDemo(selectedDemo === demoId ? null : demoId)
   }
 
