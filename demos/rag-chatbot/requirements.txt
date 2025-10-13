@@ -1,0 +1,9 @@
+# Para demo básico (sin dependencias externas)
+# No requiere instalación de paquetes
+
+# Para versión completa de producción:
+# langchain==0.1.0
+# chromadb==0.4.22
+# ollama==0.1.6
+# sentence-transformers==2.2.2
+# pypdf==3.17.4

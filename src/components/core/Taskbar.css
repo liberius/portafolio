@@ -1,0 +1,161 @@
+/* Windows XP Taskbar */
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(180deg, #3f8cf3 0%, #2053c7 100%);
+  border-top: 1px solid #1a3faf;
+  box-shadow:
+    0 -1px 0 0 rgba(255, 255, 255, 0.2) inset,
+    0 -2px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  z-index: 9999;
+  user-select: none;
+}
+
+/* Start Button */
+.taskbar__start {
+  height: 32px;
+  padding: 0 12px 0 8px;
+  background: linear-gradient(180deg, #3dbb43 0%, #1d8e23 100%);
+  border: 1px solid #0f5816;
+  border-radius: 4px;
+  box-shadow:
+    0 1px 0 0 rgba(255, 255, 255, 0.3) inset,
+    0 2px 4px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-family: 'Tahoma', 'Trebuchet MS', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  font-style: italic;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.1s;
+  flex-shrink: 0;
+}
+
+.taskbar__start:hover {
+  background: linear-gradient(180deg, #4dd252 0%, #23a02a 100%);
+}
+
+.taskbar__start:active,
+.taskbar__start--active {
+  background: linear-gradient(180deg, #1d8e23 0%, #0f5816 100%);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.3) inset,
+    0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.taskbar__start-icon {
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.taskbar__start-text {
+  text-transform: lowercase;
+}
+
+/* Separator */
+.taskbar__separator {
+  width: 2px;
+  height: 30px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  margin: 0 6px;
+  flex-shrink: 0;
+}
+
+/* Taskbar Items */
+.taskbar__items {
+  flex: 1;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.taskbar__items::-webkit-scrollbar {
+  display: none;
+}
+
+.taskbar__item {
+  height: 32px;
+  min-width: 120px;
+  max-width: 160px;
+  padding: 0 8px;
+  background: linear-gradient(180deg, #5a9cf8 0%, #3776db 100%);
+  border: 1px solid #1a5fc9;
+  border-radius: 4px;
+  box-shadow:
+    0 1px 0 0 rgba(255, 255, 255, 0.2) inset,
+    0 1px 2px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.1s;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.taskbar__item:hover {
+  background: linear-gradient(180deg, #6baeff 0%, #4886e8 100%);
+}
+
+.taskbar__item--active {
+  background: linear-gradient(180deg, #3776db 0%, #1a5fc9 100%);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.3) inset,
+    0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid #0d4191;
+}
+
+.taskbar__item-title {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* System Tray */
+.taskbar__tray {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  height: 32px;
+  background: linear-gradient(180deg, #5ba6ff 0%, #3e88f0 100%);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+
+.taskbar__clock {
+  color: white;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  min-width: 60px;
+  text-align: center;
+}

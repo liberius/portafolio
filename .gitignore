@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+dist-ssr/
+*.local
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+
+# Test coverage
+coverage/
+
+# Screenshots from demos
+screenshot_*.png
+session_*.json
+generated_automation_*.py
+
+# Python
+venv/
+__pycache__/
+*.py[cod]
+
+# Outputs from demos
+*.xlsx
+*.csv
+!demos/**/requirements.txt
+
+# Cache
+.cache/

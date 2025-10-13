@@ -1,0 +1,162 @@
+/* Start Menu Overlay */
+.start-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+}
+
+/* Windows XP Start Menu */
+.start-menu {
+  position: fixed;
+  bottom: 44px;
+  left: 4px;
+  width: 380px;
+  background: linear-gradient(90deg, #4d8dd8 0%, #5a9ff0 50%, #5a9ff0 100%);
+  border: 1px solid #0054e3;
+  border-radius: 8px 8px 0 0;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.4) inset,
+    0 8px 24px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  overflow: hidden;
+  animation: startMenuSlide 0.2s ease-out;
+}
+
+@keyframes startMenuSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.start-menu__header {
+  background: linear-gradient(180deg, #5ba2f8 0%, #377ed9 100%);
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.start-menu__user {
+  font-family: 'Tahoma', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Content */
+.start-menu__content {
+  background: #fff;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.start-menu__section {
+  padding: 8px 0;
+}
+
+.start-menu__section-title {
+  padding: 8px 16px;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.start-menu__item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  border-left: 3px solid transparent;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 12px;
+  color: #000;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.1s;
+}
+
+.start-menu__item:hover {
+  background: linear-gradient(90deg, #5ba6ff 0%, #4d8dd8 100%);
+  border-left-color: #0054e3;
+  color: white;
+}
+
+.start-menu__item-icon {
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.start-menu__item-title {
+  flex: 1;
+}
+
+/* Footer */
+.start-menu__footer {
+  background: linear-gradient(180deg, #477dd6 0%, #3767c4 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  padding: 4px;
+  gap: 4px;
+}
+
+.start-menu__footer-btn {
+  flex: 1;
+  padding: 8px 12px;
+  background: linear-gradient(180deg, #5ba6ff 0%, #4d8dd8 100%);
+  border: 1px solid #3767c4;
+  border-radius: 4px;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.start-menu__footer-btn:hover {
+  background: linear-gradient(180deg, #6bb5ff 0%, #5a9ff0 100%);
+}
+
+.start-menu__footer-btn:active {
+  background: linear-gradient(180deg, #3a7bd1 0%, #2a61b1 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset;
+}
+
+/* Scrollbar */
+.start-menu__content::-webkit-scrollbar {
+  width: 16px;
+}
+
+.start-menu__content::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.start-menu__content::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #c1d2ee 0%, #9eb6d8 100%);
+  border: 1px solid #7d94b5;
+}
+
+.start-menu__content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #a8c0e0 0%, #7e9dc7 100%);
+}

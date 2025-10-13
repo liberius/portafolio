@@ -1,0 +1,45 @@
+/* Windows XP Desktop */
+.desktop {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #5a7ebd;
+}
+
+.desktop__background {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #245edb 0%, #3f8cf3 50%, #245edb 100%);
+  z-index: 0;
+}
+
+/* XP Bliss wallpaper style (placeholder, can add actual image later) */
+.desktop__background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    ellipse at center bottom,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0.5;
+}
+
+.desktop__icons {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 80px);
+  grid-auto-rows: 80px;
+  gap: 16px;
+  z-index: 1;
+}
+
+.desktop__windows {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}

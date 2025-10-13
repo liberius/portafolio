@@ -1,0 +1,254 @@
+/* Code Samples */
+.codesamples {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: #f5f5f5;
+  overflow-y: auto;
+}
+
+.codesamples__header {
+  margin-bottom: 20px;
+}
+
+.codesamples__header h2 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.codesamples__header p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
+/* List View */
+.codesamples__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.codesamples__card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.codesamples__card:hover {
+  border-color: #0054e3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.codesamples__card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.codesamples__language {
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.codesamples__language--python {
+  background: #3776ab;
+  color: white;
+}
+
+.codesamples__language--typescript {
+  background: #3178c6;
+  color: white;
+}
+
+.codesamples__language--sql {
+  background: #f29111;
+  color: white;
+}
+
+.codesamples__skill {
+  font-size: 11px;
+  color: #666;
+  font-weight: 600;
+}
+
+.codesamples__card h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+
+.codesamples__card p {
+  margin: 0;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Viewer */
+.codesamples__viewer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.codesamples__viewer-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.codesamples__back-btn {
+  padding: 6px 12px;
+  background: #f0f0f0;
+  border: 1px solid #d4d4d4;
+  border-radius: 3px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.codesamples__back-btn:hover {
+  background: #e0e0e0;
+}
+
+.codesamples__viewer-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.codesamples__meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.codesamples__description {
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Code Block */
+.codesamples__code-block {
+  background: #1e1e1e;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.codesamples__code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #2d2d2d;
+  border-bottom: 1px solid #444;
+}
+
+.codesamples__code-header span {
+  font-size: 11px;
+  color: #ccc;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.codesamples__copy-btn {
+  padding: 4px 10px;
+  background: #3d7ff0;
+  border: 1px solid #0054e3;
+  border-radius: 3px;
+  color: white;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.codesamples__copy-btn:hover {
+  background: #5592ff;
+}
+
+.codesamples__code-block pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #d4d4d4;
+}
+
+.codesamples__code-block code {
+  font-family: inherit;
+}
+
+/* Actions */
+.codesamples__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.codesamples__repo-btn {
+  padding: 10px 20px;
+  background: linear-gradient(180deg, #3d7ff0 0%, #0054e3 100%);
+  border: 1px solid #003db0;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.codesamples__repo-btn:hover {
+  background: linear-gradient(180deg, #5592ff 0%, #1a67ff 100%);
+  box-shadow: 0 2px 6px rgba(0, 84, 227, 0.3);
+}
+
+/* Scrollbar */
+.codesamples::-webkit-scrollbar {
+  width: 12px;
+}
+
+.codesamples::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.codesamples::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border-radius: 6px;
+}
+
+.codesamples__code-block pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.codesamples__code-block pre::-webkit-scrollbar-track {
+  background: #2d2d2d;
+}
+
+.codesamples__code-block pre::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}

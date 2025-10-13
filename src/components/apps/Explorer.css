@@ -1,0 +1,214 @@
+/* Explorer Window */
+.explorer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+/* Toolbar */
+.explorer__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: linear-gradient(180deg, #f9f9f9 0%, #ececec 100%);
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.explorer__toolbar-title {
+  font-family: 'Tahoma', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #333;
+}
+
+.explorer__toolbar-path {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #666;
+  background: #fff;
+  padding: 4px 8px;
+  border: 1px solid #d4d4d4;
+  border-radius: 2px;
+}
+
+/* Filters */
+.explorer__filters {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #d4d4d4;
+  overflow-x: auto;
+  flex-wrap: wrap;
+}
+
+.explorer__filter {
+  padding: 6px 12px;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-left: 4px solid transparent;
+  border-radius: 3px;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.explorer__filter:hover {
+  background: #f0f0f0;
+  border-color: #999;
+}
+
+.explorer__filter--active {
+  background: #e3f2fd;
+  border-right-color: #2196f3;
+  font-weight: 600;
+}
+
+/* Content */
+.explorer__content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  align-content: start;
+}
+
+/* Project Card */
+.project-card {
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.project-card__header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 12px;
+}
+
+.project-card__status {
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.project-card__body {
+  padding: 16px;
+}
+
+.project-card__title {
+  font-family: 'Tahoma', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.project-card__description {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+.project-card__stack {
+  margin-bottom: 12px;
+}
+
+.project-card__stack strong {
+  font-size: 11px;
+  color: #333;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.project-card__stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.project-card__stack-item {
+  font-size: 10px;
+  color: #555;
+  background: #f0f0f0;
+  padding: 3px 8px;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+}
+
+.project-card__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.project-card__skill-badge {
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 3px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.project-card__actions {
+  display: flex;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.project-card__link {
+  flex: 1;
+  padding: 6px 12px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #0054e3;
+  background: #f0f7ff;
+  border: 1px solid #0054e3;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.project-card__link:hover {
+  background: #0054e3;
+  color: white;
+}
+
+/* Scrollbar */
+.explorer__content::-webkit-scrollbar {
+  width: 16px;
+}
+
+.explorer__content::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.explorer__content::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #c1d2ee 0%, #9eb6d8 100%);
+  border: 1px solid #7d94b5;
+}
