@@ -49,3 +49,58 @@
   padding: 2px 4px;
   border-radius: 2px;
 }
+
+/* Context Menu */
+.desktop-icon__context-menu {
+  z-index: 10000;
+  min-width: 180px;
+  background: #f0f0f0;
+  border: 1px solid #7a7a7a;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  padding: 4px;
+  font-family: 'Tahoma', sans-serif;
+  animation: context-menu-appear 0.1s ease-out;
+}
+
+@keyframes context-menu-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.desktop-icon__context-menu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  text-align: left;
+  font-size: 12px;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.desktop-icon__context-menu-item:hover {
+  background: #316ac5;
+  color: white;
+}
+
+.desktop-icon__context-menu-item span {
+  font-size: 14px;
+}
+
+.desktop-icon__context-menu-separator {
+  height: 1px;
+  background: #d4d4d4;
+  margin: 4px 0;
+}

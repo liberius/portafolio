@@ -10,7 +10,7 @@ export const projects: Project[] = [
     primarySkill: 'rpa-python',
     stack: ['Python', 'Selenium', 'JavaScript Injection', 'Keyboard/Mouse Hooks', 'Code Generation'],
     repoUrl: 'https://github.com/liberius/portafolio/tree/main/demos/selenium-recorder',
-    status: 'completed',
+    status: 'completado',
   },
   {
     id: 'apibee-wellbeing',
@@ -21,7 +21,7 @@ export const projects: Project[] = [
     primarySkill: 'fullstack-python',
     stack: ['Python', 'Kivy', 'Animaciones', 'UX Gamification'],
     repoUrl: 'https://github.com/liberius/Apibee',
-    status: 'completed',
+    status: 'completado',
   },
   {
     id: 'febos-rag-rpa',
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     skills: ['ai-llm', 'rpa-python', 'fullstack-python', 'data-analysis'],
     primarySkill: 'ai-llm',
     stack: ['Python', 'Ollama', 'ChromaDB', 'LangChain', 'Streamlit', 'Playwright', 'Pandas', 'Rocketbot'],
-    status: 'completed',
+    status: 'completado',
   },
   {
     id: 'retro-portfolio',
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     primarySkill: 'api-frontend',
     stack: ['React', 'TypeScript', 'Zustand', 'Vite', 'Framer Motion'],
     repoUrl: '#',
-    status: 'in-progress',
+    status: 'en progreso',
   },
   {
     id: 'rpa-email-triage',
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     skills: ['rpa-python', 'ai-llm'],
     primarySkill: 'rpa-python',
     stack: ['Python', 'UiPath', 'IMAP', 'spaCy', 'Pandas'],
-    status: 'completed',
+    status: 'completado',
   },
   {
     id: 'scraper-real-estate',
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     skills: ['rpa-python', 'data-analysis'],
     primarySkill: 'rpa-python',
     stack: ['Python', 'Selenium', 'BeautifulSoup', 'Pandas', 'openpyxl'],
-    status: 'completed',
+    status: 'completado',
   },
   {
     id: 'api-pokedex',
@@ -73,7 +73,7 @@ export const projects: Project[] = [
     primarySkill: 'api-frontend',
     stack: ['React', 'TypeScript', 'Fetch API', 'CSS Modules'],
     demoUrl: '#',
-    status: 'completed',
+    status: 'completado',
   },
   {
     id: 'llm-local-assistant',
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     skills: ['ai-llm', 'fullstack-python'],
     primarySkill: 'ai-llm',
     stack: ['Python', 'Ollama', 'LangChain', 'FastAPI', 'React'],
-    status: 'in-progress',
+    status: 'en progreso',
   },
   {
     id: 'excel-automation',
@@ -93,7 +93,7 @@ export const projects: Project[] = [
     skills: ['rpa-python', 'data-analysis'],
     primarySkill: 'data-analysis',
     stack: ['Python', 'openpyxl', 'XlsxWriter', 'Pandas'],
-    status: 'completed',
+    status: 'completado',
   },
   {
     id: 'dashboard-data-viz',
@@ -103,7 +103,7 @@ export const projects: Project[] = [
     skills: ['data-analysis', 'fullstack-python'],
     primarySkill: 'data-analysis',
     stack: ['Python', 'Plotly', 'Dash', 'Pandas', 'SQLite'],
-    status: 'completed',
+    status: 'completado',
   },
   {
     id: 'api-rest-fastapi',
@@ -113,6 +113,6 @@ export const projects: Project[] = [
     skills: ['fullstack-python', 'support-ops'],
     primarySkill: 'fullstack-python',
     stack: ['Python', 'FastAPI', 'PostgreSQL', 'Docker', 'JWT'],
-    status: 'completed',
+    status: 'completado',
   },
 ]

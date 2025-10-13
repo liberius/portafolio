@@ -10,6 +10,10 @@ const ALLOWED_COMPONENTS: WindowComponent[] = [
   'RpaLab',
   'ControlPanel',
   'TestApp',
+  'CodeSamples',
+  'Apibee',
+  'BillingApp',
+  'InteractiveLab',
 ]
 
 // Constants for validation
@@ -67,11 +71,30 @@ const isAllowedComponent = (component: string): component is WindowComponent => 
   return ALLOWED_COMPONENTS.includes(component as WindowComponent)
 }
 
-// Default window configuration
-const getDefaultWindowConfig = (): Pick<WindowState, 'position' | 'size'> => ({
-  position: { x: 100, y: 100 },
-  size: { width: 600, height: 400 },
-})
+// Default window configuration with specific sizes for different components
+const getDefaultWindowConfig = (component?: WindowComponent): Pick<WindowState, 'position' | 'size'> => {
+  // Larger default for Explorer to show project cards properly
+  if (component === 'Explorer') {
+    return {
+      position: { x: 50, y: 50 },
+      size: { width: 1000, height: 700 },
+    }
+  }
+
+  // Larger default for RpaLab to show outputs properly
+  if (component === 'RpaLab') {
+    return {
+      position: { x: 100, y: 100 },
+      size: { width: 900, height: 650 },
+    }
+  }
+
+  // Default for other windows
+  return {
+    position: { x: 100, y: 100 },
+    size: { width: 700, height: 500 },
+  }
+}
 
 export const useWindowStore = create<WindowStore>((set, get) => ({
   windows: [],
@@ -105,7 +128,7 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
       return
     }
 
-    const defaults = getDefaultWindowConfig()
+    const defaults = getDefaultWindowConfig(config.component)
 
     const newWindow: WindowState = {
       id: config.id,

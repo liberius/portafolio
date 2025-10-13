@@ -15,12 +15,14 @@ interface DesktopIconConfig {
 }
 
 const DESKTOP_ICONS: DesktopIconConfig[] = [
-  { id: 'my-computer', label: 'Mi PC', icon: '💻', component: 'Explorer', title: 'My Projects' },
-  { id: 'notepad', label: 'About Me', icon: '📝', component: 'Notepad', title: 'About Me' },
-  { id: 'code-samples', label: 'Code Samples', icon: '📄', component: 'CodeSamples', title: 'Code Samples' },
-  { id: 'terminal', label: 'Terminal', icon: '⌨️', component: 'Terminal', title: 'Terminal' },
-  { id: 'api-demos', label: 'API Demos', icon: '🌐', component: 'ApiDemo', title: 'API Demos' },
+  { id: 'my-computer', label: 'Mis Proyectos', icon: '💻', component: 'Explorer', title: 'Mis Proyectos' },
+  { id: 'interactive-lab', label: 'Lab Interactivo', icon: '🎮', component: 'InteractiveLab', title: 'Laboratorio Interactivo' },
+  { id: 'billing-app', label: 'Sistema POS', icon: '💰', component: 'BillingApp', title: 'Sistema de Boletas POS' },
   { id: 'rpa-lab', label: 'RPA Lab', icon: '🤖', component: 'RpaLab', title: 'RPA Lab' },
+  { id: 'api-demos', label: 'API Demos', icon: '🌐', component: 'ApiDemo', title: 'API Demos' },
+  { id: 'code-samples', label: 'Código', icon: '📄', component: 'CodeSamples', title: 'Ejemplos de Código' },
+  { id: 'terminal', label: 'Terminal', icon: '⌨️', component: 'Terminal', title: 'Terminal' },
+  { id: 'notepad', label: 'Sobre Mí', icon: '📝', component: 'Notepad', title: 'Sobre Mí' },
 ]
 
 export const Desktop: React.FC = () => {

@@ -7,6 +7,9 @@ export type WindowComponent =
   | 'ControlPanel'
   | 'CodeSamples'
   | 'TestApp'
+  | 'Apibee'
+  | 'BillingApp'
+  | 'InteractiveLab'
 
 export interface Position {
   x: number

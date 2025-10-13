@@ -18,12 +18,22 @@ interface BotOutput {
   downloadFilename?: string
 }
 
+interface BotParameter {
+  id: string
+  label: string
+  type: 'text' | 'number' | 'date' | 'select'
+  defaultValue: string | number
+  options?: string[]
+  description?: string
+}
+
 interface BotDemo {
   id: string
   name: string
   description: string
   icon: string
   steps: BotStep[]
+  parameters?: BotParameter[]
   stats?: {
     label: string
     value: string
@@ -37,6 +47,37 @@ const BOT_DEMOS: BotDemo[] = [
     name: 'Invoice Automation Bot',
     description: 'Descarga automática de documentos fiscales vía API con clasificación y almacenamiento',
     icon: '🤖',
+    parameters: [
+      {
+        id: 'fecha_desde',
+        label: 'Fecha desde',
+        type: 'date',
+        defaultValue: '2024-10-01',
+        description: 'Fecha inicial para búsqueda de facturas',
+      },
+      {
+        id: 'fecha_hasta',
+        label: 'Fecha hasta',
+        type: 'date',
+        defaultValue: '2024-10-12',
+        description: 'Fecha final para búsqueda de facturas',
+      },
+      {
+        id: 'estado',
+        label: 'Estado de factura',
+        type: 'select',
+        defaultValue: 'Todas',
+        options: ['Todas', 'Aprobada', 'Pendiente', 'Rechazada'],
+        description: 'Filtrar por estado de aprobación',
+      },
+      {
+        id: 'max_registros',
+        label: 'Máximo de registros',
+        type: 'number',
+        defaultValue: 100,
+        description: 'Límite de facturas a procesar',
+      },
+    ],
     steps: [
       { id: 1, description: 'Cargar archivo Excel con IDs de proveedores', status: 'idle' },
       { id: 2, description: 'Autenticar en API fiscal con JWT', status: 'idle', duration: 2 },
@@ -194,8 +235,26 @@ export const RpaLab: React.FC = () => {
   const [selectedBot, setSelectedBot] = useState<string | null>(null)
   const [runningSteps, setRunningSteps] = useState<BotStep[]>([])
   const [isRunning, setIsRunning] = useState(false)
+  const [parameters, setParameters] = useState<Record<string, string | number>>({})
 
   const currentBot = BOT_DEMOS.find((b) => b.id === selectedBot)
+
+  // Initialize parameters when bot is selected
+  const selectBot = (botId: string) => {
+    setSelectedBot(botId)
+    const bot = BOT_DEMOS.find((b) => b.id === botId)
+    if (bot?.parameters) {
+      const defaultParams = bot.parameters.reduce((acc, param) => {
+        acc[param.id] = param.defaultValue
+        return acc
+      }, {} as Record<string, string | number>)
+      setParameters(defaultParams)
+    }
+  }
+
+  const updateParameter = (paramId: string, value: string | number) => {
+    setParameters((prev) => ({ ...prev, [paramId]: value }))
+  }
 
   const runBot = async () => {
     if (!currentBot || isRunning) return
@@ -226,7 +285,9 @@ export const RpaLab: React.FC = () => {
   }
 
   const downloadCSV = (data: string, filename: string) => {
-    const blob = new Blob([data], { type: 'text/csv;charset=utf-8;' })
+    // Add UTF-8 BOM to ensure correct encoding in Excel and other apps
+    const BOM = '\uFEFF'
+    const blob = new Blob([BOM + data], { type: 'text/csv;charset=utf-8;' })
     const link = document.createElement('a')
     const url = URL.createObjectURL(blob)
     link.setAttribute('href', url)
@@ -235,6 +296,7 @@ export const RpaLab: React.FC = () => {
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
+    URL.revokeObjectURL(url)
   }
 
   const allStepsCompleted =
@@ -250,12 +312,15 @@ export const RpaLab: React.FC = () => {
       {!selectedBot ? (
         <div className="rpalab__bot-list">
           {BOT_DEMOS.map((bot) => (
-            <button key={bot.id} className="rpalab__bot-card" onClick={() => setSelectedBot(bot.id)}>
+            <button key={bot.id} className="rpalab__bot-card" onClick={() => selectBot(bot.id)}>
               <div className="rpalab__bot-icon">{bot.icon}</div>
               <div className="rpalab__bot-info">
                 <h3>{bot.name}</h3>
                 <p>{bot.description}</p>
-                <div className="rpalab__bot-steps-count">{bot.steps.length} pasos automatizados</div>
+                <div className="rpalab__bot-steps-count">
+                  {bot.steps.length} pasos automatizados
+                  {bot.parameters && bot.parameters.length > 0 && ` • ${bot.parameters.length} parámetros configurables`}
+                </div>
               </div>
             </button>
           ))}
@@ -272,6 +337,51 @@ export const RpaLab: React.FC = () => {
           </div>
 
           <div className="rpalab__demo-description">{currentBot?.description}</div>
+
+          {currentBot?.parameters && currentBot.parameters.length > 0 && (
+            <div className="rpalab__parameters">
+              <h4>⚙️ Configuración de Parámetros</h4>
+              <div className="rpalab__parameters-grid">
+                {currentBot.parameters.map((param) => (
+                  <div key={param.id} className="rpalab__parameter">
+                    <label className="rpalab__parameter-label">
+                      {param.label}
+                      {param.description && (
+                        <span className="rpalab__parameter-description">{param.description}</span>
+                      )}
+                    </label>
+                    {param.type === 'select' ? (
+                      <select
+                        className="rpalab__parameter-input"
+                        value={parameters[param.id] || param.defaultValue}
+                        onChange={(e) => updateParameter(param.id, e.target.value)}
+                        disabled={isRunning}
+                      >
+                        {param.options?.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+                    ) : (
+                      <input
+                        type={param.type}
+                        className="rpalab__parameter-input"
+                        value={parameters[param.id] || param.defaultValue}
+                        onChange={(e) =>
+                          updateParameter(
+                            param.id,
+                            param.type === 'number' ? Number(e.target.value) : e.target.value
+                          )
+                        }
+                        disabled={isRunning}
+                      />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {currentBot?.stats && (
             <div className="rpalab__stats">

@@ -1,0 +1,536 @@
+/* Billing App */
+.billing-app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+.billing-app__header {
+  padding: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-bottom: 2px solid #5568d3;
+}
+
+.billing-app__header h2 {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+}
+
+.billing-app__header p {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* Main Layout */
+.billing-app__main {
+  flex: 1;
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.billing-app__sidebar {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.billing-app__invoice-panel {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Customer */
+.billing-app__customer {
+  background: #fff;
+  padding: 16px;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+}
+
+.billing-app__customer label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.billing-app__customer input {
+  padding: 10px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.billing-app__customer input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* Categories */
+.billing-app__categories {
+  background: #fff;
+  padding: 16px;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+}
+
+.billing-app__categories strong {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.billing-app__category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.billing-app__category-btn {
+  padding: 8px 16px;
+  background: #f0f0f0;
+  border: 1px solid #d4d4d4;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.billing-app__category-btn:hover {
+  background: #e0e0e0;
+}
+
+.billing-app__category-btn.active {
+  background: #667eea;
+  color: white;
+  border-color: #5568d3;
+}
+
+/* Products */
+.billing-app__products {
+  background: #fff;
+  padding: 16px;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+}
+
+.billing-app__products strong {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.billing-app__product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.billing-app__product-card {
+  padding: 12px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.billing-app__product-card:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+.billing-app__product-name {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.billing-app__product-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: #28a745;
+}
+
+.billing-app__product-card:hover .billing-app__product-price {
+  color: #fff;
+}
+
+/* Invoice Header */
+.billing-app__invoice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.billing-app__invoice-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.billing-app__invoice-number {
+  font-size: 14px;
+  font-weight: 700;
+  color: #667eea;
+  background: #f0f4ff;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+/* Empty State */
+.billing-app__empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 16px;
+}
+
+/* Invoice Items */
+.billing-app__invoice-items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  overflow-y: auto;
+}
+
+.billing-app__invoice-item {
+  display: grid;
+  grid-template-columns: 2fr 120px 80px 100px 40px;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.billing-app__invoice-item-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+.billing-app__invoice-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.billing-app__invoice-item-controls button {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.billing-app__invoice-item-controls button:hover {
+  background: #5568d3;
+}
+
+.billing-app__invoice-item-controls span {
+  font-size: 14px;
+  font-weight: 700;
+  min-width: 30px;
+  text-align: center;
+}
+
+.billing-app__invoice-item-price {
+  font-size: 12px;
+  color: #666;
+  text-align: right;
+}
+
+.billing-app__invoice-item-subtotal {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  text-align: right;
+}
+
+.billing-app__invoice-item-remove {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff4757;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.billing-app__invoice-item-remove:hover {
+  background: #dc3545;
+}
+
+/* Invoice Summary */
+.billing-app__invoice-summary {
+  padding: 16px;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.billing-app__summary-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.billing-app__summary-line--total {
+  border-top: 2px solid #d4d4d4;
+  margin-top: 8px;
+  padding-top: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #667eea;
+}
+
+/* Complete Button */
+.billing-app__complete-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.billing-app__complete-btn:hover {
+  background: linear-gradient(135deg, #34ce57 0%, #28a745 100%);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+/* History */
+.billing-app__history {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #e0e0e0;
+}
+
+.billing-app__history h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.billing-app__history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.billing-app__history-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.billing-app__history-item span:first-child {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.billing-app__history-item span:nth-child(2) {
+  margin-left: auto;
+  font-weight: 700;
+}
+
+.billing-app__history-item button {
+  padding: 4px 8px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Receipt View */
+.billing-app__receipt-view {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.billing-app__receipt {
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.billing-app__receipt h3 {
+  margin: 0 0 24px 0;
+  font-size: 20px;
+  color: #28a745;
+  text-align: center;
+}
+
+.billing-app__receipt-content {
+  margin-bottom: 24px;
+}
+
+.billing-app__receipt-header {
+  padding: 16px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.billing-app__receipt-items h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.billing-app__receipt-item {
+  padding: 12px;
+  background: #f9f9f9;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.billing-app__receipt-item div:first-child {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.billing-app__receipt-summary {
+  padding: 16px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+
+.billing-app__receipt-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.billing-app__receipt-line--total {
+  border-top: 2px solid #d4d4d4;
+  margin-top: 8px;
+  padding-top: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.billing-app__receipt-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.billing-app__btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.billing-app__btn--primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.billing-app__btn--primary:hover {
+  background: linear-gradient(135deg, #5568d3 0%, #6a4190 100%);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.billing-app__btn--secondary {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #d4d4d4;
+}
+
+.billing-app__btn--secondary:hover {
+  background: #e0e0e0;
+}
+
+/* Scrollbar */
+.billing-app__sidebar::-webkit-scrollbar,
+.billing-app__invoice-panel::-webkit-scrollbar,
+.billing-app__invoice-items::-webkit-scrollbar {
+  width: 8px;
+}
+
+.billing-app__sidebar::-webkit-scrollbar-track,
+.billing-app__invoice-panel::-webkit-scrollbar-track,
+.billing-app__invoice-items::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.billing-app__sidebar::-webkit-scrollbar-thumb,
+.billing-app__invoice-panel::-webkit-scrollbar-thumb,
+.billing-app__invoice-items::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border-radius: 4px;
+}

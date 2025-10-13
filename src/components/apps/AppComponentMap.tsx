@@ -7,6 +7,11 @@ import { RpaLab } from './RpaLab'
 import { ControlPanel } from './ControlPanel'
 import { CodeSamples } from './CodeSamples'
 import { TestApp } from './TestApp'
+import { BillingApp } from './BillingApp'
+
+// Placeholder components for apps not yet implemented
+const Apibee: React.FC = () => <div style={{ padding: '20px' }}>🐝 Apibee - En desarrollo</div>
+const InteractiveLab: React.FC = () => <div style={{ padding: '20px' }}>🎮 Laboratorio Interactivo - En desarrollo</div>
 
 export const AppComponentMap: Record<WindowComponent, React.FC> = {
   Explorer,
@@ -17,4 +22,7 @@ export const AppComponentMap: Record<WindowComponent, React.FC> = {
   ControlPanel,
   CodeSamples,
   TestApp,
+  BillingApp,
+  Apibee,
+  InteractiveLab,
 }

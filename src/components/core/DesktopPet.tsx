@@ -60,11 +60,11 @@ export const DesktopPet: React.FC = () => {
   const getPetEmoji = () => {
     switch (state) {
       case 'sleeping':
-        return '😴'
+        return '🐈‍⬛' // Changed from 😴 to actual cat
       case 'playing':
         return '😸'
       case 'walking':
-        return '🐱'
+        return '🐈' // More detailed walking cat
       default:
         return '😺'
     }
@@ -91,7 +91,16 @@ export const DesktopPet: React.FC = () => {
       onClick={handleClick}
       title="Click me! I'm Felix 🐱"
     >
-      <div className="desktop-pet__sprite">{getPetEmoji()}</div>
+      <div className="desktop-pet__body">
+        <div className="desktop-pet__sprite">{getPetEmoji()}</div>
+        {state === 'sleeping' && (
+          <div className="desktop-pet__zzz">
+            <span>Z</span>
+            <span>z</span>
+            <span>z</span>
+          </div>
+        )}
+      </div>
       {state === 'playing' && <div className="desktop-pet__heart">❤️</div>}
     </div>
   )

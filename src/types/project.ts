@@ -16,7 +16,7 @@ export interface Project {
   demoUrl?: string
   repoUrl?: string
   imageUrl?: string
-  status: 'completed' | 'in-progress' | 'planned'
+  status: 'completed' | 'completado' | 'in-progress' | 'en progreso' | 'planned' | 'planificado'
 }
 
 export const SKILL_COLORS: Record<SkillCategory, string> = {
