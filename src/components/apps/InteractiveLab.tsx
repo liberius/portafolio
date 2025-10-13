@@ -68,11 +68,11 @@ const LAB_DEMOS: LabDemo[] = [
     component: 'Apibee',
     features: [
       'Interacción con mascota',
-      'Gamificación de encuestas',
-      'Análisis emocional',
-      'UX innovadora',
+      'Sistema de emociones',
+      'Puntuación y rachas',
+      'Índice de bienestar',
     ],
-    status: 'coming-soon',
+    status: 'ready',
   },
 ]
 
@@ -80,7 +80,9 @@ export const InteractiveLab: React.FC = () => {
   const { openWindow } = useWindowStore()
   const [selectedDemo, setSelectedDemo] = useState<string | null>(null)
 
-  const handleOpenDemo = (demo: LabDemo) => {
+  const handleOpenDemo = (e: React.MouseEvent, demo: LabDemo) => {
+    e.stopPropagation()
+
     if (demo.status === 'coming-soon') {
       alert('🚧 Esta demo estará disponible próximamente')
       return
@@ -93,7 +95,8 @@ export const InteractiveLab: React.FC = () => {
     })
   }
 
-  const handleViewDetails = (demoId: string) => {
+  const handleViewDetails = (e: React.MouseEvent, demoId: string) => {
+    e.stopPropagation()
     setSelectedDemo(selectedDemo === demoId ? null : demoId)
   }
 
@@ -174,14 +177,14 @@ export const InteractiveLab: React.FC = () => {
             <div className="interactive-lab__card-actions">
               <button
                 className="interactive-lab__btn interactive-lab__btn--primary"
-                onClick={() => handleOpenDemo(demo)}
+                onClick={(e) => handleOpenDemo(e, demo)}
                 disabled={demo.status === 'coming-soon'}
               >
                 {demo.status === 'ready' ? '▶️ Abrir Demo' : '🔒 Próximamente'}
               </button>
               <button
                 className="interactive-lab__btn interactive-lab__btn--secondary"
-                onClick={() => handleViewDetails(demo.id)}
+                onClick={(e) => handleViewDetails(e, demo.id)}
               >
                 {selectedDemo === demo.id ? '▲ Menos' : '▼ Más info'}
               </button>
