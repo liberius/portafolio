@@ -266,8 +266,8 @@
 .rpalab__step-content {
   flex: 1;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .rpalab__step-description {
@@ -483,6 +483,180 @@
 .rpalab__parameter-input:disabled {
   background: #f5f5f5;
   cursor: not-allowed;
+}
+
+/* Toggle Button */
+.rpalab__toggle-btn {
+  padding: 12px 24px;
+  background: #f0f0f0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.rpalab__toggle-btn:hover {
+  background: #e0e0e0;
+}
+
+/* Technical Info Panel */
+.rpalab__tech-info {
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+}
+
+.rpalab__tech-info h4 {
+  margin: 0 0 12px 0;
+  font-size: 13px;
+  color: #333;
+  font-weight: 600;
+}
+
+.rpalab__tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+}
+
+.rpalab__tech-item {
+  font-size: 12px;
+  color: #555;
+  padding: 8px;
+  background: #f9f9f9;
+  border-radius: 3px;
+}
+
+.rpalab__tech-item strong {
+  color: #0054e3;
+  margin-right: 6px;
+}
+
+/* Execution Layout (Steps + Logs side by side) */
+.rpalab__execution-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.rpalab__steps-panel,
+.rpalab__logs-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rpalab__steps-panel h4,
+.rpalab__logs-panel h4 {
+  margin: 0;
+  font-size: 13px;
+  color: #333;
+  font-weight: 600;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+}
+
+/* Technical Details in Steps */
+.rpalab__step-technical {
+  margin-top: 8px;
+  padding: 8px;
+  background: #f9f9f9;
+  border-radius: 3px;
+  border-left: 3px solid #0054e3;
+}
+
+.rpalab__step-technical-line {
+  font-size: 10px;
+  color: #666;
+  line-height: 1.6;
+  font-family: 'Courier New', monospace;
+}
+
+/* Logs Panel */
+.rpalab__logs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 12px;
+  background: #1e1e1e;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.rpalab__log {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.rpalab__log--info {
+  color: #a0a0a0;
+}
+
+.rpalab__log--success {
+  color: #4caf50;
+}
+
+.rpalab__log--warning {
+  color: #ff9800;
+}
+
+.rpalab__log--error {
+  color: #f44336;
+}
+
+.rpalab__log--technical {
+  color: #64b5f6;
+}
+
+.rpalab__log-timestamp {
+  color: #888;
+  font-size: 10px;
+  margin-right: 6px;
+}
+
+.rpalab__log-message {
+  flex: 1;
+}
+
+.rpalab__log-details {
+  margin-top: 4px;
+  padding-left: 12px;
+  font-size: 10px;
+  color: #888;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Logs scrollbar */
+.rpalab__logs::-webkit-scrollbar {
+  width: 8px;
+}
+
+.rpalab__logs::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+
+.rpalab__logs::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.rpalab__logs::-webkit-scrollbar-thumb:hover {
+  background: #666;
 }
 
 /* Scrollbar */
