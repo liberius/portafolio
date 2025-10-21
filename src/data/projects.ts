@@ -16,7 +16,7 @@ export const projects: Project[] = [
     id: 'apibee-wellbeing',
     title: 'Apibee - Gamificación para Bienestar Laboral',
     description:
-      '🏆 Ganador de Hackathon Apiux: App móvil interactiva para medir calidad de vida de empleados mediante gamificación. Los usuarios interactúan con una abeja animada, y las interacciones recopilan datos sobre estado emocional y engagement. Desarrollada en una noche para concurso interno.',
+      '🥈 2do lugar en Hackathon Apiux (5 equipos): App móvil interactiva para medir calidad de vida de empleados mediante gamificación. Los usuarios interactúan con una abeja animada que responde con diferentes estados emocionales, y las interacciones recopilan datos sobre estado emocional y engagement. Desarrollada en una noche para concurso interno.',
     skills: ['rpa-python', 'fullstack-python'],
     primarySkill: 'fullstack-python',
     stack: ['Python', 'Kivy', 'Animaciones', 'UX Gamification'],
@@ -24,13 +24,14 @@ export const projects: Project[] = [
     status: 'completado',
   },
   {
-    id: 'febos-rag-rpa',
-    title: 'Sistema RAG + RPA para Automatización de Facturación',
+    id: 'chatbot-rag-recruiting',
+    title: 'Chatbot de Reclutamiento con IA - Análisis Inteligente de CVs',
     description:
-      'Chatbot IA con arquitectura RAG (Retrieval-Augmented Generation) indexando documentación técnica de APIs fiscales + Suite de scripts RPA para descarga automatizada de documentos XML/PDF. Reducción de 85% en tiempo de proceso. Arquitectura: Vector DB para embeddings, LLM local para consultas, automatización web headless para descarga masiva.',
-    skills: ['ai-llm', 'rpa-python', 'fullstack-python', 'data-analysis'],
+      'Sistema conversacional con arquitectura RAG que actúa como reclutador profesional de RRHH. Analiza currículums en DOCX/PDF mediante búsqueda semántica con vectorización, responde preguntas contextuales sobre candidatos, y extrae información específica. Arquitectura: ChromaDB para embeddings, Google Generative AI (Gemini 1.5) como LLM, LangChain para orquestación del flujo RAG. Incluye implementaciones con Google AI API y Vertex AI para producción.',
+    skills: ['ai-llm', 'fullstack-python', 'data-analysis'],
     primarySkill: 'ai-llm',
-    stack: ['Python', 'Ollama', 'ChromaDB', 'LangChain', 'Streamlit', 'Playwright', 'Pandas', 'Rocketbot'],
+    stack: ['Python', 'Google Gemini', 'ChromaDB', 'LangChain', 'Vertex AI', 'Docx2txt', 'PyPDF2'],
+    repoUrl: 'https://github.com/liberius/portafolio/tree/main/chatbot%20rag',
     status: 'completado',
   },
   {
